@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs'); %>        
+</head>
+<body>
+    <header>
+        <%- include('./partials/header.ejs'); %>
+    </header>
+    <main>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Faculty</th>
+                <td scope="col">Major</td>
+              </tr>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < data.length; i++) { %>
+                    <th scope = "row"><%= data[i].id %></th>
+                    <td><%= data[i].fullname %></td>
+                    <td><% var date = new Date(data[i].dob),
+                           month = ("0" + (date.getMonth() + 1)).slice(-2),
+                           day = ("0" + date.getDate()).slice(-2);%>
+                        <%= [date.getFullYear(), month, day].join("-") %></td>
+                    <td><%= data[i].faculty %></td>
+                    <td><%= data[i].major %></td>
+                <% } %>
+            </tbody>
+          </table>
+    </main>
+    <footer>
+        <%- include('./partials/footer.ejs'); %>
+    </footer>
+</body>
+<!-- <script src="javascripts/index.js"></script> -->
+</html>
+
+
+    
+
