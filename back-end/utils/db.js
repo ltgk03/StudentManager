@@ -1,8 +1,5 @@
 const mysql = require('mysql2');
-const query = require('../const/query.const');
-
-
-async function getAllStudents() {
+async function Query(query) {
     var res = [];
     const connection = await mysql.createConnection({
         host:'localhost', 
@@ -10,12 +7,13 @@ async function getAllStudents() {
         password: 'password',
         database: 'studentmanager'
     });
-    await connection.promise().query(query.getAllStudents)
+    await connection.promise().query(query)
     .then(([rows, fields]) => res = rows)
     .catch(console.log)
     .then(() => connection.end());
     return res;
 } 
+
 module.exports = {
-    getAllStudents
+    Query
 }
