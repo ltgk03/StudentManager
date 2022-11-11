@@ -4,6 +4,7 @@ const orderById = "/orderbyid";
 const orderByName = "/orderbyname";
 const search = "/search/:id";
 const saveStudent = "/addstudent/save/:subjectnumber";
+const deleteStudent = "/delete/:id";
 
 module.exports = {
     ROOT,
@@ -11,5 +12,6 @@ module.exports = {
     saveStudent,
     orderById,
     orderByName,
-    search
+    search,
+    deleteStudent
 }

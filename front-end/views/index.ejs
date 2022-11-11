@@ -26,9 +26,9 @@
                 </thead>
                 <tbody>
                     <% for (let i = 0; i < data.length; i++) { %>
-                        <tr>
+                        <tr id=<%=`row${i + 1}`%>>
                         <th scope = "row"><%= i + 1%></th>
-                        <td><%= data[i].id %></td>
+                        <td id="id"><button style="background: transparent; border-style: none"><%= data[i].id %></button></td>
                         <td><%= data[i].fullname %></td>
                         <td><% var date = new Date(data[i].dob),
                                month = ("0" + (date.getMonth() + 1)).slice(-2),
@@ -37,7 +37,7 @@
                         <td><%= data[i].faculty %></td>
                         <td><%= data[i].major %></td>
                         <td>
-                            <button class="btn">Delete</button>
+                            <button class="btn" onclick="deleteStudent(this)">Delete</button>
                             <button class="btn">Update</button>
                         </td>
                         </tr>
