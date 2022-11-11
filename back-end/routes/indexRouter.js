@@ -5,9 +5,8 @@ const indexController = require('../controllers/index.controller');
 const indexRouter = express.Router();
 
 indexRouter.get(APIRoute.ROOT, indexController.getAllStudents);
-indexRouter.post(APIRoute.ROOT, function (req, res) {
-    res = indexController.order;
-});
+indexRouter.get(APIRoute.orderById, indexController.orderById);
+indexRouter.get(APIRoute.orderByName, indexController.orderByName);
 
 
 module.exports = indexRouter;

@@ -1,12 +1,14 @@
 const ROOT = "/";
-const create = "/createstudent";
+const addStudent = "/addstudent";
 const orderById = "/orderbyid";
 const orderByName = "/orderbyname";
 const search = "/search/:id";
+const saveStudent = "/addstudent/save/:subjectnumber";
 
 module.exports = {
     ROOT,
-    create,
+    addStudent,
+    saveStudent,
     orderById,
     orderByName,
     search

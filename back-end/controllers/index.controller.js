@@ -7,20 +7,22 @@ const getAllStudents = async function (req, res) {
     res.render('index.ejs', {data: result});
 }
 
-const order = async function (req, res) {
+const orderById = async function (req, res) {
     var result = [];
-    console.log(req.body);
-    // if (req.body.title == "orderbyid") {
-    //     result = await database.Query(query.orderById);
-    // } else {
-    //     result = await database.Query(query.orderByName);    
-    // }
-    // return result;
+    result = await database.Query(query.orderById);
+    res.render('index.ejs', {data: result});
+}
+
+const orderByName = async function (req, res) {
+    var result = [];
+    result = await database.Query(query.orderByName);
+    res.render('index.ejs', {data: result});
 }
 
 const search = () => {}
 module.exports = {
     getAllStudents,
-    order,
+    orderById,
+    orderByName,
     search
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+    </header>
+    <main>
+        <h1>Student Manager System</h1>
+        <h6>Created by ltgk03</h6>
+        <br>  
+        <form action="/addstudent/save/0" method="post" id="form">
+            <h3>Student Information</h3>
+       
+            <div class="">
+                <label for="id" class="">ID</label>
+                <input type="text" class=""aria-describedby="idHelp" name="id">
+                <div id="idHelp" class="">The ID must be a 8 digits number</div>
+            </div>
+            <div class="mb-3">
+                <label for="fullname" class="">Full Name</label>
+                <input type="text" class="" name="fullname" aria-describedby="fullnameHelp">
+                <div id="fullnameHelp" class="">Input must not have special character</div>
+            </div>
+            <div class="mb-3">
+                <label for="dateofbirth" class="">Date of birth</label>
+                <input type="date" class="" name="dob" aria-describedby="dobHelp">
+                <div id="dobHelp" class="">Date must be in range 01/01/2000 - 12/31/2004</div>
+            </div>   
+            
+            <div class="mb-3">
+                <label for="faculty" class="">Faculty</label>
+                <input type="text" class="" name="faculty">
+            </div>   
+
+            <div class="mb-3">
+                <label for="major" class="">Major</label>
+                <input type="text" class="" name="major">
+            </div>   
+  
+            <h3>Academic Transcript</h3>
+            <div id="workplace">
+            </div>
+            <button id="addsubject" type="button">Add Subject</button>    
+        <button id="save" class="btn" type="submit">Save</button>
+    </form>
+
+        <button id="back" class="btn">Back</button>
+        
+    </main>
+    <footer>
+        <%- include('./partials/footer.ejs') %>
+    </footer>
+</body>
+<script src="javascripts/create.js"></script>
+<script src="javascripts/main.js"></script>
+</html>

@@ -7,23 +7,28 @@
     <header>
         <%- include('./partials/header.ejs'); %>
     </header>
-    <main>
+    <main class="index">
         <h1>Student Manager System</h1>
-        <div class = "container-fluid">
-            <table class="table">
+        <h6>Created by ltgk03</h6>
+        <br>
+        <div class = "container-fluid justify-content-center">
+            <table class="table table-responsive table-hover table-striped table-bordered">
                 <thead>
                   <tr>
+                    <th scope="col">No.</th>
                     <th scope="col">ID</th>
                     <th scope="col">Full Name</th>
                     <th scope="col">Date of Birth</th>
                     <th scope="col">Faculty</th>
-                    <td scope="col">Major</td>
+                    <th scope="col">Major</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                     <% for (let i = 0; i < data.length; i++) { %>
                         <tr>
-                        <th scope = "row"><%= data[i].id %></th>
+                        <th scope = "row"><%= i + 1%></th>
+                        <td><%= data[i].id %></td>
                         <td><%= data[i].fullname %></td>
                         <td><% var date = new Date(data[i].dob),
                                month = ("0" + (date.getMonth() + 1)).slice(-2),
@@ -31,6 +36,10 @@
                             <%= [date.getFullYear(), month, day].join("-") %></td>
                         <td><%= data[i].faculty %></td>
                         <td><%= data[i].major %></td>
+                        <td>
+                            <button class="btn">Delete</button>
+                            <button class="btn">Update</button>
+                        </td>
                         </tr>
                     <% } %>
                 </tbody>
@@ -42,6 +51,7 @@
     </footer>
 </body>
 <script src="javascripts/index.js"></script>
+<script src="javascripts/main.js"></script>
 </html>
 
 

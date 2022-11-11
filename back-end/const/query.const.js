@@ -1,19 +1,17 @@
 const getAllStudents = `SELECT * FROM student_list`;
-const deleteStudent = ``;
-const updateStudent = ``;
-const createStudent = ``;
-const getStudentScore = ``;
-const updateStudentScore = ``;
+
+const createStudent = (id, fullname, dob, faculty, major) => `INSERT INTO student_list VALUES (${id}, ${fullname}, ${dob}, ${faculty}, ${major})`;
+const createStudentSubject = (studentid, codeid, subjectname, numberofcredit, mark) => {
+    return `INSERT INTO student_scores (studentid, codeid, subjectname, numberofcredit, mark) 
+            VALUES (${studentid}, ${codeid}, ${subjectname}, ${numberofcredit}, ${mark})`;
+}
 const orderById = `SELECT * FROM student_list ORDER BY id`;
-const orderByName =`SELECT * FROM student_list ORDER BY name`;
+const orderByName = `SELECT * FROM student_list ORDER BY fullname`;
 
 module.exports = {
     getAllStudents,
-    deleteStudent,
-    updateStudent,
     createStudent,
-    getStudentScore,
-    updateStudentScore,
+    createStudentSubject,
     orderById,
     orderByName
 }
