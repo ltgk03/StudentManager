@@ -18,10 +18,8 @@ const saveStudent = async function (req, res) {
             const mark = `mark${i}`;
             await database.Query(query.createStudentSubject(parseInt(infor.id, 10), `'${infor[subjectcode]}'`, `'${infor[subjecname]}'`, infor[numberofcredit], infor[mark]));
         }
-        res.send("Record Success");
     } catch (err) {
         console.error(err);
-        res.send("Have error in recording process");
     } finally {
         res.redirect(addStudent);
     }

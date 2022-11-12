@@ -14,3 +14,8 @@ function deleteStudent(deleteBtn) {
         window.location.pathname = `/delete/${id}`;
     }
 }
+
+function updateStudent(updateBtn) {
+    const id = updateBtn.parentElement.parentElement.querySelector('#id').innerText.trim();
+    window.location.pathname = `/update/${id}`;
+}

@@ -1,4 +1,4 @@
-var express = require('express');
+const express = require('express');
 const APIRoute = require('../const/api.const');
 const createController = require('../controllers/create.controller');
 

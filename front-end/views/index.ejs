@@ -8,9 +8,7 @@
         <%- include('./partials/header.ejs'); %>
     </header>
     <main class="index">
-        <h1>Student Manager System</h1>
-        <h6>Created by ltgk03</h6>
-        <br>
+       
         <div class = "container-fluid justify-content-center">
             <table class="table table-responsive table-hover table-striped table-bordered">
                 <thead>
@@ -38,7 +36,7 @@
                         <td><%= data[i].major %></td>
                         <td>
                             <button class="btn" onclick="deleteStudent(this)">Delete</button>
-                            <button class="btn">Update</button>
+                            <button class="btn" onclick="updateStudent(this)">Update</button>
                         </td>
                         </tr>
                     <% } %>
