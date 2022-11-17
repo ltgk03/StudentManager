@@ -19,7 +19,6 @@ app.set('views', path.join(__dirname, 'front-end/views'));
 app.set('view engine', 'ejs');
 
 
-
 app.use(APIRoute.ROOT, indexRouter);
 app.use(APIRoute.ROOT, createRouter);
 app.use(APIRoute.ROOT, updateRouter);

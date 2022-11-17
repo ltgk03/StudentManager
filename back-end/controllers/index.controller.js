@@ -22,6 +22,7 @@ const orderByName = async function (req, res) {
 
 const deleteStudent = async function (req, res) {
     const id = req.params.id;
+    console.log(id);
     await database.Query(query.deleteStudent(id));
     console.log("Query success");
     res.redirect(ROOT);

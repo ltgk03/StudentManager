@@ -1,57 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('./partials/head.ejs'); %>        
-</head>
-<body>
-    <header>
-        <%- include('./partials/header.ejs'); %>
-    </header>
+  <head>
+    <%- include('./partials/head.ejs'); %>
+  </head>
+  <body>
+    <header><%- include('./partials/header.ejs'); %></header>
     <main class="index">
-       
-        <div class = "container-fluid justify-content-center">
-            <table class="table table-responsive table-hover table-striped table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">Full Name</th>
-                    <th scope="col">Date of Birth</th>
-                    <th scope="col">Faculty</th>
-                    <th scope="col">Major</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <% for (let i = 0; i < data.length; i++) { %>
-                        <tr id=<%=`row${i + 1}`%>>
-                        <th scope = "row"><%= i + 1%></th>
-                        <td id="id"><button style="background: transparent; border-style: none"><%= data[i].id %></button></td>
-                        <td><%= data[i].fullname %></td>
-                        <td><% var date = new Date(data[i].dob),
-                               month = ("0" + (date.getMonth() + 1)).slice(-2),
-                               day = ("0" + date.getDate()).slice(-2);%>
-                            <%= [date.getFullYear(), month, day].join("-") %></td>
-                        <td><%= data[i].faculty %></td>
-                        <td><%= data[i].major %></td>
-                        <td>
-                            <button class="btn" onclick="deleteStudent(this)">Delete</button>
-                            <button class="btn" onclick="updateStudent(this)">Update</button>
-                        </td>
-                        </tr>
-                    <% } %>
-                </tbody>
-              </table>
+        <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+                <button class="dropdown-toggle btn btn-dark" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+                  Order by
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><button class="dropdown-item btn" style="background-color:transparent" id="orderbyid">ID</button></li>
+                  <li><button class="dropdown-item btn" style="background-color:transparent" id ="orderbyname">Full Name</button></li>
+                </ul>   
+        <div class="d-flex">
+            <input class="form-control me-2" placeholder="ID" id="idtosearch">
+            <button class="btn btn-outline-success" id="searchid">Search</button>
         </div>
+        </div>
+    </nav>
+      <div class="container-fluid justify-content-center">
+        <table class="table table-responsive table-hover table-striped table-bordered table-dark">
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">ID</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Date of Birth</th>
+              <th scope="col">Faculty</th>
+              <th scope="col">Major</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let i=0; i < data.length; i++) { %>
+            <tr id=<%= `row${i + 1}` %>>
+              <th scope="row"><%= i + 1 %></th>
+              <td id="id"><%= data[i].id %>
+              </td>
+              <td><%= data[i].fullname %></td>
+              <td>
+                <% var date=new Date(data[i].dob), month=("0" + (date.getMonth()+ 1)).slice(-2), day=("0" + date.getDate()).slice(-2);%> 
+                <%=[date.getFullYear(), month, day].join("-") %>
+              </td>
+              <td><%= data[i].faculty %></td>
+              <td><%= data[i].major %></td>
+              <td>
+                <button class="btn btn-danger" onclick="deleteStudent(this)">
+                  Delete
+                </button>
+                <button class="btn btn-success" onclick="updateStudent(this)">
+                  Update
+                </button>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
     </main>
-    <footer>
-        <%- include('./partials/footer.ejs'); %>
-    </footer>
-</body>
-<script src="javascripts/index.js"></script>
-<script src="javascripts/main.js"></script>
+    <footer><%- include('./partials/footer.ejs'); %></footer>
+  </body>
+  <script src="javascripts/index.js"></script>
+  <script src="javascripts/main.js"></script>
 </html>
-
-
-    
-

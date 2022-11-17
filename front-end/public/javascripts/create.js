@@ -5,67 +5,42 @@ var countSubject = 0;
 document.getElementById('addsubject').addEventListener("click", function () {
     countSubject++;
 
-    let subjectnameLabel = document.createElement('label');
-    subjectnameLabel.innerText = "Subject Name";
-    subjectnameLabel.setAttribute('for', "subjectname");
-    subjectnameLabel.setAttribute('class', "");
+    let subject = document.createElement('div');
+    subject.setAttribute('style', 'border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-bottom: 20px;background-color: #404258; color: #ffff');
 
-    let subjectnameInput = document.createElement('input');
-    subjectnameInput.setAttribute('type', "text");
-    subjectnameInput.setAttribute('class', "");
-    subjectnameInput.setAttribute('name', `subjectname${countSubject}`);
+    let subjectComponent1 = document.createElement('div');
+    subjectComponent1.setAttribute('class', 'mb-4 form-group');
+    subjectComponent1.innerHTML = 
+    "<label>Subject Name</label>" +
+    "<input type='text' class='form-control' name='subjectname" + countSubject + "' required>";
 
+    let subjectComponent2 = document.createElement('div');
+    subjectComponent2.setAttribute('class', 'mb-4 form-group');
+    subjectComponent2.innerHTML = 
+    "<label>Subject Code</label>" +
+    "<input type='text' class='form-control' name='subjectcode" + countSubject + "' required>";
 
-    let subjectcodeLabel = document.createElement('label');
-    subjectcodeLabel.innerText = "Subject Code";
-    subjectcodeLabel.setAttribute('for', "subjectname");
-    subjectcodeLabel.setAttribute('class', "");
+    let subjectComponent3 = document.createElement('div');
+    subjectComponent3.setAttribute('class', 'mb-4 form-group');
+    subjectComponent3.innerHTML = 
+    "<label>Number of credits</label>" +
+    "<input type='text' class='form-control' name='numberofcredit" + countSubject + "' required>";
 
-    let subjectcodeInput = document.createElement('input');
-    subjectcodeInput.setAttribute('type', "text");
-    subjectcodeInput.setAttribute('class', "");
-    subjectcodeInput.setAttribute('name', `subjectcode${countSubject}`);
+    let subjectComponent4 = document.createElement('div');
+    subjectComponent4.setAttribute('class', 'mb-4 form-group');
+    subjectComponent4.innerHTML = 
+    "<label>Mark</label>" +
+    "<input type='text' class='form-control' name='mark" + countSubject + "' required>";
 
+    subject.appendChild(subjectComponent1);
+    subject.appendChild(subjectComponent2);
+    subject.appendChild(subjectComponent3);
+    subject.appendChild(subjectComponent4);
 
-    let numberofcreditLabel = document.createElement('label');
-    numberofcreditLabel.innerText = "Number of credits";
-    numberofcreditLabel.setAttribute('for', "numberofcredit");
-    numberofcreditLabel.setAttribute('class', "");
-
-    let numberofcreditInput = document.createElement('input');
-    numberofcreditInput.setAttribute('type', "text");
-    numberofcreditInput.setAttribute('class', "");
-    numberofcreditInput.setAttribute('name', `numberofcredit${countSubject}`);
-
-    let markLabel = document.createElement('label');
-    markLabel.innerText = "Mark";
-    markLabel.setAttribute('for', "mark");
-    markLabel.setAttribute('class', "");
-
-    let markInput = document.createElement('input');
-    markInput.setAttribute('type', "text");
-    markInput.setAttribute('class', "");
-    markInput.setAttribute('name', `mark${countSubject}`);
-
-    workplace.appendChild(subjectnameLabel);
-    workplace.appendChild(subjectnameInput);
-    workplace.appendChild(subjectcodeLabel);
-    workplace.appendChild(subjectcodeInput);
-    workplace.appendChild(numberofcreditLabel)
-    workplace.appendChild(numberofcreditInput)
-    workplace.appendChild(markLabel)
-    workplace.appendChild(markInput)
-    workplace.appendChild(document.createElement('br'));
+    workplace.appendChild(subject);
 
     form.setAttribute('action', `/addstudent/save/${countSubject}`);
 });
 
-document.getElementById('back').addEventListener("click", function () {
-    if (window.confirm(`All your changes will not be recorded. \n Do you really want to leave? \n `)) {
-        window.location.pathname = '/';
-    } else {
-        window.location.pathname = '/addstudent';
-    };
-});
 
 

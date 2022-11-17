@@ -8,6 +8,7 @@ const createForm = function (req, res) {
 
 const saveStudent = async function (req, res) {
     const infor = req.body;
+    console.log(infor);
     const subjectnumber = req.params.subjectnumber;
     try {
         await database.Query(query.createStudent(parseInt(infor.id, 10), `'${infor.fullname}'`, `'${infor.dob}'`, `'${infor.faculty}'`, `'${infor.major}'`));
