@@ -6,7 +6,7 @@ document.getElementById('addsubject').addEventListener("click", function () {
     countSubject++;
 
     let subject = document.createElement('div');
-    subject.setAttribute('style', 'border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-bottom: 20px;background-color: #404258; color: #ffff');
+    subject.setAttribute('style', 'border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-bottom: 20px; margin-top: 20px; background-color: #404258; color: #ffff');
 
     let subjectComponent1 = document.createElement('div');
     subjectComponent1.setAttribute('class', 'mb-4 form-group');

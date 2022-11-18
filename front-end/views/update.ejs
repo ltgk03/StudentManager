@@ -8,57 +8,73 @@
         <%- include('./partials/header.ejs') %>
     </header>
     <main>
+        <div class="container-fluid custom-form">
         <form action=<%=`/update/save/${infor[0].id}/${subjects.length}`%> method="post" id="form">
-            <h3>Student Information</h3>
+        <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: #404258; color: #ffff">
+            <h3 style="text-align: center">Student Information</h3>
     
-            <div class="">
-                <label for="id" class="">ID</label>
-                <input type="text" class=""aria-describedby="idHelp" name="id" value=<%= infor[0].id%> readonly>
+            <div class="mb-4 form-group">
+                <label for="id">ID</label>
+                <input type="text" class="form-control" aria-describedby="idHelp" name="id" value=<%= infor[0].id%> readonly required>
+                <div id="idHelp" class="form-text text-muted">The ID must be a 8 digits number</div>
             </div>
-            <div class="mb-3">
-                <label for="fullname" class="">Full Name</label>
-                <input type="text" class="" name="fullname" aria-describedby="fullnameHelp" value=<%= infor[0].fullname%>>
-                <div id="fullnameHelp" class="">Input must not have special character</div>
+            <div class="mb-4 form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" class="form-control" name="fullname" aria-describedby="fullnameHelp" value=<%= infor[0].fullname%> required>
+                <div id="fullnameHelp" class="form-text text-muted">Input must not have special character</div>
             </div>
-            <div class="mb-3">
-                <label for="dateofbirth" class="">Date of birth</label>
+            <div class="mb-4 form-group">
+                <label for="dateofbirth">Date of birth</label>
                 <% { var date = new Date(infor[0].dob),
                 month = ("0" + (date.getMonth() + 1)).slice(-2), 
                 day = ("0" + date.getDate()).slice(-2); %>
-                    <input type="date" class="" name="dob" aria-describedby="dobHelp" value=<%= [date.getFullYear(), month, day].join("-") %>>
+                    <input type="date" class="form-control" name="dob" aria-describedby="dobHelp" value=<%= [date.getFullYear(), month, day].join("-") %> required>
                 <% } %>
-                <div id="dobHelp" class="">Date must be in range 01/01/2000 - 12/31/2004</div>
+                <div id="dobHelp" class="form-text text-muted">Date must be in range 01/01/2000 - 12/31/2004</div>
             </div>   
             
-            <div class="mb-3">
-                <label for="faculty" class="">Faculty</label>
-                <input type="text" class="" name="faculty" value=<%= infor[0].faculty%>>
+            <div class="mb-4 form-group">
+                <label for="faculty">Faculty</label>
+                <input type="text" class="form-control" name="faculty" value=<%= infor[0].faculty%> required>
             </div>   
 
-            <div class="mb-3">
-                <label for="major" class="">Major</label>
-                <input type="text" class="" name="major" value=<%= infor[0].major%>>
+            <div class="mb-4 form-group">
+                <label for="major">Major</label>
+                <input type="text" class="form-control" name="major" value=<%= infor[0].major%>>
             </div>   
-
+        </div>
+        <br>
+        <div class="mb-4" style="border: 1px solid #ccc; border-radius: 5px; padding: 10px">
             <h3>Academic Transcript</h3>
             <div id="subjects">
                 <% for (let i = 0; i < subjects.length; i++) {%>
-                    <label for="subjectname">Subject Name</label>
-                    <input type="text" name=<%=`subjectname${i + 1}`%> value=<%=subjects[i].subjectname%>>
-                    <label for="subjectcode">Subject Code</label>
-                    <input type="text" name=<%=`subjectcode${i + 1}`%> value=<%=subjects[i].codeid%>>
-                    <label for="numberofcredit">Number of credits</label>
-                    <input type="text" name=<%=`numberofcredit${i + 1}`%> value=<%=subjects[i].numberofcredit%>>
-                    <label for="mark">Mark</label>
-                    <input type="text" name=<%=`mark${i + 1}`%> value=<%=subjects[i].mark%>>
+                    <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-bottom: 20px; margin-top: 20px; background-color: #404258; color: #ffff">
+                        <div class="mb-4 form-group">
+                            <label for="subjectname">Subject Name</label>
+                            <input type="text" class="form-control" name=<%=`subjectname${i + 1}`%> value=<%=subjects[i].subjectname%> required>
+                        </div>
+                        <div class="mb-4 form-group">
+                            <label for="subjectcode">Subject Code</label>
+                            <input type="text" class="form-control" name=<%=`subjectcode${i + 1}`%> value=<%=subjects[i].codeid%> required>
+                        </div>
+                        <div class="mb-4 form-group">
+                            <label for="numberofcredit">Number of credits</label>
+                            <input type="text" class="form-control" name=<%=`numberofcredit${i + 1}`%> value=<%=subjects[i].numberofcredit%> required>
+                        </div>
+                        <div class="mb-4 form-group">
+                            <label for="mark">Mark</label>
+                            <input type="text" class="form-control" name=<%=`mark${i + 1}`%> value=<%=subjects[i].mark%> required>
+                        </div>
+                    </div>
                 <% }; %>
                 <%= %>
-                </div>
             </div>
-            <button id="addsubject" type="button">Add Subject</button>    
-        <button id="save" class="btn" type="submit">Save</button>
-    </form>
-    <button id="back" class="btn">Back</button>  
+            <button id="addsubject" type="button" class="btn btn-dark" style="border-radius: 10px;text-align: center;">Add Subject</button>       
+        </div>
+        <div class="mt-4" style="text-align: center">
+            <button id="save" class="btn btn-success" type="submit">Save</button>
+        </div>
+    </div>
     </main>
     <footer>
         <%- include('./partials/footer.ejs') %>
