@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs'); %>
+  </head>
+  <body>
+    <header><%- include('./partials/header.ejs'); %></header>
+    <main>
+        <div class="container-fluid custom-board">  
+            <div class="row">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Student Information</h5>
+                            <p class="card-text">ID: <%=data[0].id %></p>
+                            <p class="card-text">Full Name: <%=data[0].fullname %></p>
+                            <p class="card-text">Date of Birth: 
+                                <% var date=new Date(data[0].dob), month=("0" + (date.getMonth()+ 1)).slice(-2), day=("0" + date.getDate()).slice(-2);%> 
+                                <%=[date.getFullYear(), month, day].join("-") %>
+                            </p>
+                            <p class="card-text">Faculty: <%=data[0].faculty %></p>
+                            <p class="card-text">Major: <%=data[0].major %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Code</th>
+                            <th scope="col">Subject Name</th>
+                            <th scope="col">Number of credits</th>
+                            <th scope="col">Mark</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i=0; i<data.length; i++){ %>
+                                <tr>
+                                    <th scope="row"><%=i+1 %></th>
+                                    <td><%=data[i].codeid %></td>
+                                    <td><%=data[i].subjectname %></td>
+                                    <td><%=data[i].numberofcredit %></td>
+                                    <td><%=data[i].mark %></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer><%- include('./partials/footer.ejs'); %></footer>
+  </body>
+  <script src="javascripts/main.js"></script>
+</html>
+ 

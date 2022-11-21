@@ -28,11 +28,20 @@ const deleteStudent = async function (req, res) {
     res.redirect(ROOT);
 }
 
+const getDetail = async function (req, res) {
+    const id = req.params.id;
+    var result = [];
+    result = await database.Query(query.getDetail(id));
+    console.log(result);
+    res.render('detail.ejs', { data: result });
+}
+
 const search = () => { }
 module.exports = {
     getAllStudents,
     deleteStudent,
     orderById,
     orderByName,
-    search
+    search, 
+    getDetail
 }

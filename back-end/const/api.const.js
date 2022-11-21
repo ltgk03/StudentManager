@@ -7,6 +7,7 @@ const saveStudent = "/addstudent/save/:subjectnumber";
 const deleteStudent = "/delete/:id";
 const updateStudent = "/update/:id";
 const saveUpdate = "/update/save/:id/:subjectnumber";
+const getDetail = "/detail/:id";
 
 module.exports = {
     ROOT,
@@ -17,5 +18,6 @@ module.exports = {
     search,
     deleteStudent,
     updateStudent,
-    saveUpdate
+    saveUpdate,
+    getDetail
 }

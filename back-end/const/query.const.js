@@ -23,6 +23,7 @@ const updateStudentInfo = (id, fullname, dob, faculty, major) => {
             WHERE id = ${id}`;
 }
 const deleteStudentSubject = (id) => `DELETE FROM student_scores WHERE studentid = ${id}`;
+const getDetail = (id) => `SELECT * FROM student_list l LEFT JOIN student_scores s ON l.id = s.studentid WHERE l.id = ${id}`;
 
 module.exports = {
     getAllStudents,
@@ -34,5 +35,6 @@ module.exports = {
     selectStudent,
     selectStudentSubjects,
     updateStudentInfo,
-    deleteStudentSubject
+    deleteStudentSubject,
+    getDetail
 }

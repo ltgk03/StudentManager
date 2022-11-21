@@ -8,6 +8,7 @@ indexRouter.get(APIRoute.ROOT, indexController.getAllStudents);
 indexRouter.get(APIRoute.orderById, indexController.orderById);
 indexRouter.get(APIRoute.orderByName, indexController.orderByName);
 indexRouter.get(APIRoute.deleteStudent, indexController.deleteStudent);
+indexRouter.get(APIRoute.getDetail, indexController.getDetail);
 
 
 module.exports = indexRouter;
